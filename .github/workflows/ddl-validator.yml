@@ -15,12 +15,12 @@ jobs:
       - name: check current time
         run: |
           now=`TZ=UTC-8 date +%Y-%m-%d" "%H:%M:%S`
-          ddl="2022-11-11 11:11:11"
+          ddl="2023-11-11 11:11:11"
           nowDate=`date -d "$now" +%s`
           ddlDate=`date -d "$ddl" +%s`
           if [ $nowDate -ge $ddlDate ]; then
             echo "当前日期超过DDL：$ddl"
-            echo "::error title={合入被拒绝}::{当前日期超过DDL}" 
+            echo "::error title=合入被拒绝::当前日期超过DDL" 
             exit 1
           else
             echo "日期未超过DDL"
