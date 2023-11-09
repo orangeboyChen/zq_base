@@ -15,7 +15,7 @@ jobs:
       - name: check current time
         run: |
           now=`TZ=UTC-8 date +%Y-%m-%d" "%H:%M:%S`
-          ddl="2023-11-11 11:11:11"
+          ddl="2022-11-11 11:11:11"
           nowDate=`date -d "$now" +%s`
           ddlDate=`date -d "$ddl" +%s`
           if [ $nowDate -ge $ddlDate ]; then
