@@ -1,0 +1,27 @@
+name: DDL流水线
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches:
+      - main
+
+
+jobs:
+  ddl-validator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check current time
+        run: |
+          now=`TZ=UTC-8 date +%Y-%m-%d" "%H:%M:%S`
+          ddl="2023-11-11 11:11:11"
+          nowDate=`date -d "$now" +%s`
+          ddlDate=`date -d "$ddl" +%s`
+          if [ $nowDate -ge $ddlDate ]; then
+            echo "当前日期超过DDL：$ddl"
+            echo "::error title=合入被拒绝::当前日期超过DDL" 
+            exit 1
+          else
+            echo "日期未超过DDL"
+          fi
