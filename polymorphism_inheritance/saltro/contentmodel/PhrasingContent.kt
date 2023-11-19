@@ -1,4 +1,3 @@
 package saltro.contentmodel
 
-interface PhrasingContent {
-}
+interface PhrasingContent

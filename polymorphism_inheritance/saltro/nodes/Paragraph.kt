@@ -1,4 +1,3 @@
 package saltro.nodes
 
-class Paragraph(children: Array<Node>) : Parent<Node>("p", children) {
-}
+class Paragraph(children: List<Node>) : Parent<Node>("p", children)

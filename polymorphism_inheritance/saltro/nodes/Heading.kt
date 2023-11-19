@@ -11,7 +11,7 @@ enum class HeadingDepth {
     H6,
 }
 
-class Heading<T>(private val depth: HeadingDepth, children: Array<T>) :
+class Heading<T>(private val depth: HeadingDepth, children: List<T>) :
     Parent<T>("heading", children) where T : Node, T : PhrasingContent {
     override val type: String
         get() = when (depth) {
